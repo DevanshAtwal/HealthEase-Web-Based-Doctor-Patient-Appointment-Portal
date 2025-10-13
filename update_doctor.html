@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Doctor Information - HealthEase</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">HealthEase</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="doctor_dashboard.html">Dashboard</a></li>
+      <li><a href="update_doctor.html" class="active">Update Info</a></li>
+      <li><a href="login.html">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- Update Form -->
+  <form method="POST">
+  <input type="text" name="fullname" value="{{ doctor.fullname }}" placeholder="Full Name" required>
+  <input type="tel" name="contact" value="{{ doctor.contact }}" placeholder="Contact Number" required>
+  <input type="text" name="specialization" value="{{ doctor.specialization }}" placeholder="Specialization" required>
+  <input type="text" name="education" value="{{ doctor.education }}" placeholder="Education" required>
+  <input type="text" name="hospital" value="{{ doctor.hospital }}" placeholder="Hospital / Clinic Name" required>
+  <input type="text" name="location" value="{{ doctor.location }}" placeholder="Location" required>
+  <input type="number" name="fee" value="{{ doctor.fee }}" placeholder="Consultation Fee" required>
+  <input type="text" name="time_slots" value="{{ doctor.time_slots }}" placeholder="Available Time Slots" required>
+  <input type="text" name="username" value="{{ doctor.username }}" placeholder="Username" required>
+  <input type="password" name="password" placeholder="New Password (optional)">
+  <button type="submit" class="btn">Update Information</button>
+</form>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 HealthEase | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
