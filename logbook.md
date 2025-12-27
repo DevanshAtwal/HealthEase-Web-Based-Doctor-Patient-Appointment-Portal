@@ -1,5 +1,11 @@
 Project Logbook (HealthEase Web Based Patient Doctor Appointment System):
 
+
+Project Overview – HealthEase
+
+
+The HealthEase Patient-Doctor Appointment Portal is designed to simplify and automate the process of booking and managing appointments between patients and doctors. Patients can register, search for doctors based on speciality, location, and consultation fee, and book appointments easily. Doctors can manage their schedules, view patient appointments, and update their availability. The admin can manage both doctors and patients to ensure smooth system operation. The project uses Python and SQLite for the backend, and HTML, CSS, and JavaScript for the frontend, providing a secure, efficient, and user-friendly platform for Appointment management.
+
 | Sr.No | Contents / Activity                                                   | Date        |
 |-------|-----------------------------------------------------------------------|-------------|
 | 1     | Project Group Formation.                                              | 02-08-2025  |
@@ -23,6 +29,39 @@ Project Logbook (HealthEase Web Based Patient Doctor Appointment System):
 | 18    | Database Creation for Patient Appointment Booking:- Using SQLite, a table was designed to store appointment details such as patient ID, doctor ID,                 appointment date, time, and reason for visit. This database ensures that all booked appointments are saved securely and can be retrieved for display in            the patient dashboard or doctor dashboard.| 28-10-2025  |
 | 18    | The admin dashboard is used to manage the overall system. It provides options to manage doctors and manage patients. Using the Manage Doctors feature,             the admin can add, update, or remove doctor details. The Manage Patients option allows the admin to view and manage patient information.  | 1-11-2025  |
 
+Project Description:
 
+HealthEase is a web-based portal for managing doctor-patient appointments-
 
+* Register and log in securely
+* view appointments details and manage availability.
+* Patients can quickly find doctors using filters for speciality, location, and consultation fee.
+
+Technologies Used:
+| Backend  |     Frontend      | Tools & Platform  |
+|----------|-------------------|-------------------|
+| To be integrated (future scope)|      HTML         | Visual Studio Code|
+|          |      CSS          | GitHub            |
+|          |   Javascript      |                   |
+
+Team Members:
+| Name            |        
+|-----------------|
+| Vrushali More   | 
+| Janhavi Kale    |                   
+| Devash Atwal    |        
+| Gitesh Jamadar  | 
+
+Project Guide:
+
+Dr.Prof.K.D.Chaudhari
+
+Note:
+
+This project is developed as part of the Semester Project to gain practical knowledge of :
+
+* Web application development
+* Team collaboration 
+* Version control using GitHub
+* Project planning
 
