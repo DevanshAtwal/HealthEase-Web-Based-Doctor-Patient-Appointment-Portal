@@ -209,3 +209,20 @@ Submit the final project and prepare for project presentation.
 **Guide Interaction**
 
 Guide reviewed the final report and suggested minor corrections before final submission.
+
+**Project Description:**
+
+HealthEase is a web-based portal for managing doctor-patient appointments-
+
+-Register and log in securely
+
+-view appointments details and manage availability.
+
+-Patients can quickly find doctors using filters for speciality, location, and consultation fee.
+
+**Team Members:**  
+- Member 1: [Vrushali Kantilal More]  
+- Member 2: [Janhavi Ishwar Kale]  
+- Member 3: [Devansh Manoj Atwal]  
+- Member 4: [Gitesh Sharadsing Jamadar]
+
