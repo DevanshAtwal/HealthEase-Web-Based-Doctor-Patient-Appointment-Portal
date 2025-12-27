@@ -56,12 +56,3 @@ Project Guide:
 
 Dr.Prof.K.D.Chaudhari
 
-Note:
-
-This project is developed as part of the Semester Project to gain practical knowledge of :
-
-* Web application development
-* Team collaboration 
-* Version control using GitHub
-* Project planning
-
