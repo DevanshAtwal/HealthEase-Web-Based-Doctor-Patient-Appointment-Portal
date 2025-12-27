@@ -1,10 +1,7 @@
-Project Logbook (HealthEase Web Based Patient Doctor Appointment System):
-**Log Book – SY Semester Project-I (Sem-III, 2025–26)**
-
-This is a progress log detailing the work done on our semester project.
-
-**Index**
-| Sr.No | Week No | Contents / Activity                          | Date                    |
+## Project Logbook
+### Project Title: Patient Doctor Appointment System
+### Index
+| Sr.No | Week No | Contents                                     | Date                    |
 |------:|:-------:|----------------------------------------------|-------------------------|
 | 1     | Week 01 | Group Establishment                           | 28/07/2025 - 02/08/2025 |
 | 2     | Week 02 | Topic Selection                               | 04/08/2025 - 16/08/2025 |
@@ -18,7 +15,11 @@ This is a progress log detailing the work done on our semester project.
 | 10    | Week 10 | Final Results & Analysis                      | 03/11/2025 - 08/11/2025 |
 | 11    | Week 11 | Final Report & Conclusion                     | 10/11/2025 - 15/11/2025 |
 
-**Week 1 : Group Establishment**
+---
+
+**Link:-** https://github.com/DevanshAtwal/SemProject
+
+## Week 1 : Group Establishment
 
 **Date:** 28/07/2025 – 02/08/2025
 
@@ -35,10 +36,7 @@ Finalize the project topic and decide the system modules.
 Guide discussed the project idea and suggested focusing on a simple, user-friendly system with secure login and proper appointment management.
 
 
-
-
-
-**Week 2 : Topic Selection**
+## Week 2 : Topic Selection
 
 **Date:** 04/08/2025 – 16/08/2025
 
@@ -54,9 +52,7 @@ Start requirement analysis and prepare system overview.
 
 Guide approved the selected topic and suggested adding features like doctor availability, appointment slots, and notification alerts.
 
-
-
-**Week 3 : Requirement Analysis & System Overview**
+## Week 3 : Requirement Analysis & System Overview
 
 **Date:** 18/08/2025 – 23/08/2025
 
@@ -74,7 +70,7 @@ Guide reviewed the requirement analysis and suggested clearly separating patient
 
 
 
-**Week 4 : System Architecture Design**
+## Week 4 : System Architecture Design 
 
 **Date:** 28/08/2025 – 02/09/2025
 
@@ -91,7 +87,7 @@ Start Phase 1 of implementation using selected frontend and backend technologies
 Guide reviewed the architecture and suggested using Python and SQLite for easy database handling and keeping the frontend simple and responsive.
 
 
-**Week 5 : Phase 1 of Implementation**
+## Week 5 : Phase 1 of Implementation
 
 **Date:** 03/09/2025 – 13/09/2025
 
@@ -109,7 +105,7 @@ Guide reviewed the initial implementation and suggested improving page layout an
 
 
 
-**Week 6 : Combined Design & Implementation**
+## Week 6 : Combined Design & Implementation
 
 **Date:** 15/09/2025 – 20/09/2025
 
@@ -125,13 +121,13 @@ Implement appointment booking, dashboards features, and slot management.
 
 Guide reviewed the combined work and suggested proper validation, structured backend routes, and clear separation of dashboards for patient, doctor, and admin.
 
-**Week 7 : Phase 2 of Implementation**
+## Week 7 : Phase 2 of Implementation
 
 **Date:** 22/09/2025 – 04/10/2025
 
 **Activities Completed**
 
-In this week, Phase 2 of implementation was completed for HEALTHEASE – Patient Doctor Appointment System. Appointment booking functionality was implemented for patients. Patient dashboard was developed with features such as Book Appointment, My Appointments, and My Profile. Doctor dashboard was implemented with features like My Appointments, My Profile, and Slot Settings for managing available time slots. Backend routes were enhanced using Python to handle appointment booking, slot availability, and user profile management. Database tables were updated in SQLite to store appointment and slot details.
+Appointment booking functionality was implemented for patients. Patient dashboard was developed with features such as Book Appointment, My Appointments, and My Profile. Doctor dashboard was implemented with features like My Appointments, My Profile, and Slot Settings for managing available time slots. Backend routes were enhanced using Python to handle appointment booking, slot availability, and user profile management. Database tables were updated in SQLite to store appointment and slot details.
 
 **Next Plan**
 
@@ -141,7 +137,7 @@ Implement admin panel and improve backend validation.
 
 Guide reviewed the implementation and suggested improving appointment flow, handling slot conflicts properly, and securing backend routes.
 
-**Week 8 : Phase 3 of Implementation**
+## Week 8 : Phase 3 of Implementation
 
 **Date:** 06/10/2025 – 18/10/2025
 
@@ -159,7 +155,7 @@ Perform system testing and fix errors.
 Guide reviewed the Phase 3 implementation and suggested testing all modules and validating data flow between frontend, backend, and database.
 
 
-**Week 9 : System Testing**
+## Week 9 : System Testing
 
 **Date:** 29/10/2025 – 01/11/2025
 
@@ -176,7 +172,7 @@ Prepare final results and analysis of the system.
 
 Guide reviewed the testing process and suggested fixing remaining bugs and ensuring all features work correctly.
 
-**Week 10 :** Final Results & Analysis
+## Week 10 : Final Results & Analysis
 
 **Date:** 03/11/2025 – 08/11/2025
 
@@ -193,7 +189,7 @@ Prepare the final project report and conclusion.
 
 Guide reviewed the final results and analysis and suggested completing documentation and preparing for final submission.
 
-**Week 11 : Final Report & Conclusion**
+## Week 11 : Final Report & Conclusion
 
 **Date: 10/11/2025 – 15/11/2025**
 
@@ -210,23 +206,22 @@ Submit the final project and prepare for project presentation.
 
 Guide reviewed the final report and suggested minor corrections before final submission.
 
-**Project Description:**
+## Project Description:
 
 HealthEase is a web-based portal for managing doctor-patient appointments-
 
--Register and log in securely
+-Register and log in securely.
 
 -view appointments details and manage availability.
 
 -Patients can quickly find doctors using filters for speciality, location, and consultation fee.
 
-**Team Members:**  
+## Team Members:  
 - Member 1: [Vrushali Kantilal More]  
 - Member 2: [Janhavi Ishwar Kale]  
 - Member 3: [Devansh Manoj Atwal]  
 - Member 4: [Gitesh Sharadsing Jamadar]
 
-**Project Guide:**
-
-Dr.Prof.K.D.Chaudhari
+## Project Guide
+### Dr.Prof.K.D.Chaudhari
 
