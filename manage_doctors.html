@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Doctors | HealthEase</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+    body { background: #f8fafc; }
+    nav { background:#2b6cb0; padding:15px 40px; color:white; display:flex; justify-content:space-between; }
+    nav a { color:white; margin-left:25px; text-decoration:none; }
+    nav a:hover { text-decoration:underline; }
+    .container { margin-top:40px; }
+    h2 { color:#2b6cb0; font-weight:600; }
+    table { background:white; }
+    .btn-action { padding:3px 10px; border-radius:6px; }
+    .btn-verify { background:#38a169; color:white; }
+    .btn-remove { background:#e53e3e; color:white; }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">HealthEase Admin</div>
+  <div>
+    <a href="/site/ADMIN/admin_dashboard.html">Dashboard</a>
+    <a href="/site/ADMIN/manage_doctors.html">Doctors</a>
+    <a href="/site/ADMIN/manage_patients.html">Patients</a>
+    <a href="/site/ADMIN/appointments.html">Appointments</a>
+    <a href="/">Logout</a>
+  </div>
+</nav>
+
+<div class="container">
+  <h2 class="mb-4">Manage Doctors</h2>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-primary">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Specialization</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Dr. Anita Sharma</td>
+        <td>Cardiologist</td>
+        <td>Pending</td>
+        <td>
+          <button class="btn-action btn-verify">Verify</button>
+          <button class="btn-action btn-remove">Remove</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td>Dr. Rakesh Patel</td>
+        <td>Dermatologist</td>
+        <td>Verified</td>
+        <td>
+          <button class="btn-action btn-remove">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
