@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment | HealthEase</title>
+
+  <!-- Bootstrap + Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f8fafc;
+      margin: 0;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #2b6cb0;
+      padding: 15px 60px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Card */
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+    }
+
+    .card {
+      border-radius: 16px;
+      border: none;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    h3 {
+      color: #2b6cb0;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    button {
+      background-color: #2b6cb0;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #1e4e8c;
+    }
+
+    footer {
+      background-color: #2b6cb0;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Login Check -->
+  <script>
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "/site/login.html";
+    }
+  </script>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">HealthEase</div>
+    <div>
+      <a href="/site/PATIENT/patient_dashboard.html">Dashboard</a>
+      <a href="/site/find_doctor.html">Find Doctors</a>
+      <a href="/" onclick="logout()">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Appointment Form -->
+  <div class="container">
+    <div class="card">
+      <h3>Book Appointment</h3>
+
+      <form id="appointmentForm">
+
+        <!-- Doctor Name -->
+        <label>Doctor Name</label>
+        <input type="text" id="doctorName" class="form-control" readonly>
+
+        <!-- Patient Details -->
+        <label>Patient Name</label>
+        <input type="text" class="form-control" required>
+
+        <label>Mobile Number</label>
+        <input type="text" class="form-control" required>
+
+        <label>City</label>
+        <input type="text" class="form-control" required>
+
+        <label>Age</label>
+        <input type="number" class="form-control" required>
+
+        <label>Disease / Problem</label>
+        <textarea class="form-control" rows="3" required></textarea>
+
+        <label>Select Slot</label>
+        <select class="form-control" required>
+          <option value="">Select Slot</option>
+          <option>10:00 AM - 10:30 AM</option>
+          <option>11:00 AM - 11:30 AM</option>
+          <option>12:00 PM - 12:30 PM</option>
+          <option>04:00 PM - 04:30 PM</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary w-100">
+          Confirm Appointment
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 HealthEase | Appointment Booking
+  </footer>
+
+  <script>
+    function logout() {
+      localStorage.clear();
+      window.location.href = "/";
+    }
+
+    // Get doctor name from URL
+    const params = new URLSearchParams(window.location.search);
+    const doctor = params.get("doctor");
+
+    if (doctor) {
+      document.getElementById("doctorName").value = doctor;
+    }
+
+    document.getElementById("appointmentForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("✅ Appointment booked successfully!");
+      window.location.href = "/site/PATIENT/patient_dashboard.html";
+    });
+  </script>
+
+</body>
+</html>
