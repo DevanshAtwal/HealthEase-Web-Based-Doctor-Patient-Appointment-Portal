@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Summary | HealthEase</title>
+
+  <!-- Bootstrap & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    * { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
+    body {
+      background-color: #f7fafc;
+      margin: 0;
+      color: #2d3748;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #2b6cb0;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .stats-box {
+      background-color: #edf2f7;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .stats-box:hover {
+      transform: translateY(-4px);
+      background-color: #e2e8f0;
+    }
+
+    .stats-box h4 {
+      color: #2b6cb0;
+      font-weight: 600;
+    }
+
+    .stats-box p {
+      font-size: 20px;
+      margin: 0;
+      font-weight: 600;
+      color: #2d3748;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      background-color: #2b6cb0;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #1e4e8c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="/site/DOCTOR/doctor_dashboard.html" class="back-btn">← Back to Dashboard</a>
+    <h2>Appointment Summary</h2>
+
+    <!-- Stats Row -->
+    <div class="row text-center mb-5">
+      <div class="col-md-3 mb-3">
+        <div class="stats-box">
+          <h4>Total Appointments</h4>
+          <p id="totalCount">0</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="stats-box">
+          <h4>Completed</h4>
+          <p id="completedCount">0</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="stats-box">
+          <h4>Upcoming</h4>
+          <p id="upcomingCount">0</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="stats-box">
+          <h4>Cancelled</h4>
+          <p id="cancelledCount">0</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chart -->
+  
+  </div>
+
+  <script>
+    // Dummy data (You can replace this with backend or localStorage data)
+    const appointmentData = [
+      { month: "Jan", total: 22, completed: 18, cancelled: 2 },
+      { month: "Feb", total: 27, completed: 24, cancelled: 1 },
+      { month: "Mar", total: 20, completed: 16, cancelled: 3 },
+      { month: "Apr", total: 30, completed: 25, cancelled: 2 },
+      { month: "May", total: 25, completed: 22, cancelled: 1 },
+      { month: "Jun", total: 28, completed: 26, cancelled: 0 },
+      { month: "Jul", total: 35, completed: 33, cancelled: 1 },
+      { month: "Aug", total: 32, completed: 29, cancelled: 2 },
+      { month: "Sep", total: 24, completed: 21, cancelled: 2 },
+      { month: "Oct", total: 29, completed: 27, cancelled: 1 },
+      { month: "Nov", total: 21, completed: 18, cancelled: 1 },
+      { month: "Dec", total: 26, completed: 24, cancelled: 0 }
+    ];
+
+    // Update summary counts
+    const totalCount = appointmentData.reduce((acc, val) => acc + val.total, 0);
+    const completedCount = appointmentData.reduce((acc, val) => acc + val.completed, 0);
+    const cancelledCount = appointmentData.reduce((acc, val) => acc + val.cancelled, 0);
+    const upcomingCount = totalCount - completedCount - cancelledCount;
+
+    document.getElementById('totalCount').textContent = totalCount;
+    document.getElementById('completedCount').textContent = completedCount;
+    document.getElementById('cancelledCount').textContent = cancelledCount;
+    document.getElementById('upcomingCount').textContent = upcomingCount;
+
+    // Chart
+    const ctx = document.getElementById('appointmentChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: appointmentData.map(d => d.month),
+        datasets: [
+          {
+            label: 'Total Appointments',
+            data: appointmentData.map(d => d.total),
+            backgroundColor: '#2b6cb0'
+          },
+          {
+            label: 'Completed',
+            data: appointmentData.map(d => d.completed),
+            backgroundColor: '#38a169'
+          },
+          {
+            label: 'Cancelled',
+            data: appointmentData.map(d => d.cancelled),
+            backgroundColor: '#e53e3e'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom' },
+          title: {
+            display: true,
+            text: 'Monthly Appointment Overview',
+            font: { size: 18 }
+          }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
