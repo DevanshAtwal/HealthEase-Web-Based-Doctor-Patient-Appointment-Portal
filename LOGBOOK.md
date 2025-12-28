@@ -1,5 +1,5 @@
 ## Project Logbook
-### Project Title: Patient Doctor Appointment System
+### Project Title: Patient Doctor Appointment Portal.
 ### Index
 | Sr.No | Week No | Contents                                     | Date                    |
 |------:|:-------:|----------------------------------------------|-------------------------|
@@ -223,5 +223,5 @@ HealthEase is a web-based portal for managing doctor-patient appointments-
 - Member 4: [Gitesh Sharadsing Jamadar]
 
 ## Project Guide
-### Dr.Prof.K.D.Chaudhari
+### Dr. Kiran Dinkar Chaudhari
 
