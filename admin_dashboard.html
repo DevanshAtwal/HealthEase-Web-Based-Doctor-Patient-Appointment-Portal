@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | HealthEase</title>
+
+  <!-- Bootstrap + Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+    body {
+      background-color: #f8fafc;
+      margin: 0;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #2b6cb0;
+      padding: 15px 40px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Dashboard Layout */
+    .dashboard-container {
+      padding: 60px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .welcome h2 {
+      color: #2b6cb0;
+      font-weight: 600;
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-title {
+      color: #2b6cb0;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background-color: #2b6cb0;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .btn-primary:hover {
+      background-color: #1e4e8c;
+    }
+
+    footer {
+      background-color: #2b6cb0;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">HealthEase Admin</div>
+    <div>
+      <a href="/site/ADMIN/admin_dashboard.html">Dashboard</a>
+      <a href="/site/ADMIN/manage_doctors.html">Doctors</a>
+      <a href="/site/ADMIN/manage_patients.html">Patients</a>
+      <a href="/site/ADMIN/appointments.html">Appointments</a>
+      <a href="/">Logout</a>
+    </div>
+  </nav>
+  
+  <!-- Dashboard -->
+  <div class="dashboard-container">
+    <div class="welcome">
+      <h2>Welcome, Admin 👩‍💼</h2>
+      <p>Monitor and manage all users, doctors, and appointments efficiently.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Manage Doctors -->
+      <div class="col-md-4">
+        <div class="card p-4 text-center">
+          <h5 class="card-title">Manage Doctors</h5>
+          <p>View, verify, or remove doctors from the system.</p>
+          <button class="btn btn-primary" onclick="location.href='/site/ADMIN/manage_doctors.html'">Manage</button>
+        </div>
+      </div>
+
+      <!-- Manage Patients -->
+      <div class="col-md-4">
+        <div class="card p-4 text-center">
+          <h5 class="card-title">Manage Patients</h5>
+          <p>View patient profiles and their activity.</p>
+          <button class="btn btn-primary" onclick="location.href='/site/ADMIN/manage-patients.html'">View Patients</button>
+        </div>
+      </div>
+
+      <!-- Appointments -->
+      <div class="col-md-4">
+        <div class="card p-4 text-center">
+          <h5 class="card-title">Appointments</h5>
+          <p>Monitor all active and canceled appointments.</p>
+          <button class="btn btn-primary" onclick="location.href='/site/ADMIN/appointments.html'">View Appointments</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- System Controls -->
+    
+
+      <div class="col-md-6">
+        <div class="card p-4 text-center">
+          <h5 class="card-title">System Settings</h5>
+          <p>Configure verification, notifications, and data management.</p>
+          <button class="btn btn-primary" onclick="alert('Settings UI not yet implemented')">Open Settings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Admin API Controls -->
+  <div class="dashboard-container">
+    <div class="card p-4 mb-4">
+      <h5 class="card-title">Admin API Controls</h5>
+      <p>Enter an admin user id to make API requests (for demo/testing).</p>
+      <div class="row g-2 align-items-center">
+        <div class="col-auto">
+          <input id="adminId" class="form-control" placeholder="Admin user id (e.g. 1)" />
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-secondary" id="btnDoctors">List Doctors</button>
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-secondary" id="btnPatients">List Patients</button>
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-secondary" id="btnAppointments">List Appointments</button>
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-secondary" id="btnSlots">List Slots</button>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <pre id="apiOutput" style="max-height:300px;overflow:auto;background:#f1f5f9;padding:12px;border-radius:8px;"></pre>
+      </div>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 HealthEase | Admin Panel | All Rights Reserved
+  </footer>
+
+  <script>
+    const baseUrl = '/admin';
+    function getAdminId(){
+      const v = document.getElementById('adminId').value.trim();
+      return v || null;
+    }
+    function showOutput(obj){
+      const out = document.getElementById('apiOutput');
+      try{ out.textContent = JSON.stringify(obj, null, 2); }catch(e){ out.textContent = String(obj); }
+    }
+    async function callApi(path, opts={}){
+      const adminId = getAdminId();
+      opts.headers = opts.headers || {};
+      if(adminId) opts.headers['X-User-Id'] = adminId;
+      const res = await fetch(baseUrl + path, opts);
+      const text = await res.text();
+      try{ return JSON.parse(text); }catch(e){ return {status: res.status, body: text}; }
+    }
+
+    document.getElementById('btnDoctors').addEventListener('click', async ()=>{
+      showOutput({status:'loading'});
+      const r = await callApi('/api/doctors');
+      showOutput(r);
+    });
+    document.getElementById('btnPatients').addEventListener('click', async ()=>{
+      showOutput({status:'loading'});
+      const r = await callApi('/api/patients');
+      showOutput(r);
+    });
+    document.getElementById('btnAppointments').addEventListener('click', async ()=>{
+      showOutput({status:'loading'});
+      const r = await callApi('/api/appointments');
+      showOutput(r);
+    });
+    document.getElementById('btnSlots').addEventListener('click', async ()=>{
+      showOutput({status:'loading'});
+      const r = await callApi('/api/slots');
+      showOutput(r);
+    });
+  </script>
+</body>
+</html>
