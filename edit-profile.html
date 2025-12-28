@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile | HealthEase</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
+    body {
+      background-color: #f7fafc;
+      margin: 0;
+      color: #2d3748;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #2b6cb0;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-label {
+      font-weight: 500;
+      color: #2d3748;
+    }
+
+    .btn-primary {
+      background-color: #2b6cb0;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #1e4e8c;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      background-color: #2b6cb0;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #1e4e8c;
+    }
+
+    .profile-pic {
+      display: block;
+      margin: 10px auto 20px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #2b6cb0;
+    }
+
+    .text-success {
+      font-weight: 500;
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="/site/DOCTOR/doctor_dashboard.html" class="back-btn">← Back to Dashboard</a>
+    <h2>Update Profile</h2>
+
+    <form id="profileForm">
+      <div class="text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/3870/3870822.png" alt="Profile Picture" id="previewImg" class="profile-pic">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Profile Picture</label>
+        <input type="file" id="profilePic" class="form-control" accept="image/*">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" id="name" class="form-control" placeholder="Dr. John Doe" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" placeholder="doctor@example.com" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Mobile Number</label>
+        <input type="tel" id="mobile" class="form-control" placeholder="+91 9876543210" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Education</label>
+        <input type="text" id="education" class="form-control" placeholder="MBBS, MD (Cardiology)" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Speciality</label>
+        <select id="speciality" class="form-select" required>
+          <option value="">Select Speciality</option>
+          <option>Cardiologist</option>
+          <option>Pediatrician</option>
+          <option>Dermatologist</option>
+          <option>Neurologist</option>
+          <option>Orthopedic</option>
+          <option>General Physician</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Consultation Fee (₹)</label>
+        <input type="number" id="fee" class="form-control" placeholder="e.g. 500" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Hospital Address (Google Map Link)</label>
+        <input type="url" id="address" class="form-control" placeholder="https://maps.google.com/..." required>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+      <p id="successMsg" class="text-success"></p>
+    </form>
+  </div>
+
+  <script>
+    const profileForm = document.getElementById('profileForm');
+    const profilePic = document.getElementById('profilePic');
+    const previewImg = document.getElementById('previewImg');
+    const successMsg = document.getElementById('successMsg');
+
+    // Load saved data
+    const savedProfile = JSON.parse(localStorage.getItem('doctorProfile')) || {};
+
+    if (savedProfile.name) {
+      document.getElementById('name').value = savedProfile.name;
+      document.getElementById('email').value = savedProfile.email;
+      document.getElementById('mobile').value = savedProfile.mobile;
+      document.getElementById('education').value = savedProfile.education;
+      document.getElementById('speciality').value = savedProfile.speciality;
+      document.getElementById('fee').value = savedProfile.fee;
+      document.getElementById('address').value = savedProfile.address;
+      if (savedProfile.photo) previewImg.src = savedProfile.photo;
+    }
+
+    // Image preview
+    profilePic.addEventListener('change', function() {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          previewImg.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Save profile
+    profileForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const profileData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        mobile: document.getElementById('mobile').value,
+        education: document.getElementById('education').value,
+        speciality: document.getElementById('speciality').value,
+        fee: document.getElementById('fee').value,
+        address: document.getElementById('address').value,
+        photo: previewImg.src
+      };
+
+      localStorage.setItem('doctorProfile', JSON.stringify(profileData));
+      successMsg.textContent = "Profile updated successfully!";
+      setTimeout(() => successMsg.textContent = "", 3000);
+    });
+  </script>
+
+</body>
+</html>
