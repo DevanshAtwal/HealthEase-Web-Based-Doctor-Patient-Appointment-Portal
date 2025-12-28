@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration | HealthEase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      background: #fff;
+      padding: 20px;
+      margin: 40px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .btn-group button {
+      padding: 10px 20px;
+      border: none;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .btn-group button:hover {
+      background: #0056b3;
+    }
+
+    form {
+      display: none; 
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    button[type="submit"]:hover {
+      background: darkgreen;
+    }
+  </style>
+
+  <!-- SHOW FORMS ONLY WHEN CLICKED -->
+  <script>
+    function showForm(type) {
+      document.getElementById("patientForm").style.display = type === 'patient' ? 'block' : 'none';
+      document.getElementById("doctorForm").style.display  = type === 'doctor' ? 'block' : 'none';
+    }
+  </script>
+
+</head>
+<body>
+
+  <div class="container">
+    <h2>Register on HealthEase</h2>
+
+    <!-- BUTTONS -->
+    <div class="btn-group">
+      <button onclick="showForm('patient')">Patient Registration</button>
+      <button onclick="showForm('doctor')">Doctor Registration</button>
+    </div>
+
+    <!-- PATIENT REGISTRATION FORM -->
+    <form id="patientForm" action="/register/patient" method="POST">
+      <h3>Patient Registration</h3>
+
+      <label>Name</label>
+      <input type="text" name="name" required>
+
+      <label>Address</label>
+      <textarea name="address" required></textarea>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Mobile Number</label>
+      <input type="text" name="mobile" required>
+
+      <label>Gender</label>
+      <select name="gender">
+        <option value="">Prefer not to say</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label>Age</label>
+      <input type="number" name="age" min="0">
+
+      <label>Password</label>
+      <input type="password" name="password" required>
+
+      <button type="submit">Register Patient</button>
+    </form>
+
+    <!-- DOCTOR REGISTRATION FORM -->
+    <form id="doctorForm" action="/register/doctor" method="POST" enctype="multipart/form-data">
+      <h3>Doctor Registration</h3>
+
+      <label>Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Mobile Number</label>
+      <input type="text" name="mobile" required>
+
+      <label>Education</label>
+      <input type="text" name="education" required>
+
+      <label>Speciality</label>
+      <input type="text" name="speciality" required>
+
+      <label>Available Slots</label>
+      <input type="text" name="slots" required>
+
+      <label>Consultation Fee</label>
+      <input type="number" name="fee" required>
+
+      <label>Hospital Address (Google Map Link)</label>
+      <input type="text" name="hospital" required>
+
+      <label>Profile Picture</label>
+      <input type="file" name="profile_pic">
+
+      <label>Password</label>
+      <input type="password" name="password" required>
+
+      <button type="submit">Register Doctor</button>
+    </form>
+
+  </div>
+
+</body>
+</html>
