@@ -1,50 +1,207 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HealthEase - Patient Doctor Portal</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthEase | Doctor Appointment System</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
+    body {
+      background-color: #f8fafc;
+      color: #333;
+      margin: 0;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #2b6cb0;
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    nav .menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav .menu a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(43,108,176,0.85), rgba(43,108,176,0.85)), url('https://img.freepik.com/free-photo/medical-banner-with-doctor-holding-stethoscope_23-2149611199.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero .btn-primary {
+      background-color: #f6ad55;
+      border: none;
+      padding: 14px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .hero .btn-primary:hover {
+      background-color: #dd6b20;
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .about h2 {
+      color: #2b6cb0;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* Login Section */
+    .auth-section {
+      text-align: center;
+      padding: 60px 30px;
+      background-color: #edf2f7;
+    }
+
+    .auth-section h3 {
+      color: #2b6cb0;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .auth-buttons a {
+      display: inline-block;
+      background-color: #2b6cb0;
+      color: white;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      margin: 10px;
+      transition: 0.3s;
+    }
+
+    .auth-buttons a:hover {
+      background-color: #1e4e8c;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #2b6cb0;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
+<script>
+  function handleFindDoctors() {
+    const loggedIn = localStorage.getItem("loggedIn");
+    const target = '/site/find_doctor.html';
+
+    if (!loggedIn) {
+      // Not logged in → go to login page and include return URL
+      const next = encodeURIComponent(target);
+      window.location.href = `/site/login.html?next=${next}`;
+    } else {
+      // Logged in → allow access
+      window.location.href = target;
+    }
+  }
+</script>
 <body>
-  <!-- Navigation -->
+
+  <!-- Navbar -->
   <nav>
     <div class="logo">HealthEase</div>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="patient_register.html">Patient Register</a></li>
-      <li><a href="doctor_register.html">Doctor Register</a></li>
-      <li><a href="login.html">Login</a></li>
-    </ul>
-    <a href="login.html" class="btn">Book Appointment</a>
+    <div class="menu">
+      <a href="/">Home</a>
+      <a href="#" onclick="handleFindDoctors()">Find Doctors</a>
+
+      <a href="/site/login.html">Login</a>
+      <a href="/site/register.html">Register</a>
+    </div>
   </nav>
 
   <!-- Hero Section -->
-  <div class="hero">
-    <h1>Connect with the best care,Instantly!</h1>
-    <p>Skip the wait,book with ease,on your schedule</p>
-    
-  </div>
+  <section class="hero">
+    <h1>Book Your Doctor Appointment Easily</h1>
+    <p>HealthEase makes it simple for patients to connect with trusted doctors online. Schedule appointments anytime, anywhere — securely and instantly.</p>
+    <button class="btn btn-primary" onclick="handleFindDoctors()">Find Doctors</button>
+  </section>
 
-  <!-- Services -->
-  <div class="services">
-    <div class="box">
-      <h2>User Friendly</h2>
-      <p>To provide a user-friendly online platform for booking doctor appointments anytime,anywhere.</p>
+  <!-- About Section -->
+  <section class="about">
+    <h2>About HealthEase</h2>
+    <p>
+      HealthEase is a web-based appointment portal designed to bridge the gap between patients and doctors.
+      Patients can register, search for doctors by speciality, location, or consultation fees, and book appointments instantly.
+      Doctors can manage their schedules, view appointments, and cancel or reschedule when needed.
+      The admin panel ensures everything runs smoothly and securely.
+    </p>
+  </section>
+
+  <!-- Login/Register Buttons -->
+  <section class="auth-section">
+    <h3>Get Started</h3>
+    <div class="auth-buttons">
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="admin.html">Admin</a>
     </div>
-    <div class="box">
-      <h2>Saves Times</h2>
-      <p>To reduce patient waiting times by streamlining scheduling and resourse allocation.</p>
-    </div>
-    <div class="box">
-      <h2>Nearby Doctors</h2>
-      <p>To enable patients to find nearby doctors or hospitals based on their current location.</p>
-    </div>
-  </div>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 HealthEase | All Rights Reserved</p>
+    &copy; 2025 HealthEase | All Rights Reserved
   </footer>
+
 </body>
 </html>
+
+
