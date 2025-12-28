@@ -1,47 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doctor Dashboard - HealthEase</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doctor Dashboard | HealthEase</title>
+
+  <!-- Bootstrap + Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+    body {
+      background-color: #f8fafc;
+      margin: 0;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #2b6cb0;
+      padding: 15px 40px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Dashboard Content */
+    .dashboard-container {
+      padding: 60px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .welcome h2 {
+      color: #2b6cb0;
+      font-weight: 600;
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-title {
+      color: #2b6cb0;
+      font-weight: 600;
+    }
+
+    footer {
+      background-color: #2b6cb0;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
+    }
+
+    .btn-primary {
+      background-color: #2b6cb0;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .btn-primary:hover {
+      background-color: #1e4e8c;
+    }
+  </style>
 </head>
+
 <body>
+
+  <!-- Navbar -->
   <nav>
     <div class="logo">HealthEase</div>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="doctor_dashboard.html" class="active">Dashboard</a></li>
-      <li><a href="update_doctor.html">Update Info</a></li>
-      <li><a href="login.html">Logout</a></li>
-    </ul>
+    <div>
+      <a href="/site/DOCTOR/appointment-report.html">My Appointments</a>
+      <a href="/site/DOCTOR/manage-slots.html">Manage Slots</a>
+      <a href="/site/DOCTOR/edit-profile.html">Profile</a>
+      <a href="/">Logout</a>
+    </div>
   </nav>
 
-  <div class="hero">
-    <h1>Welcome, Doctor!</h1>
-    <p>Here are your upcoming appointments.</p>
-  </div>
-
-  <div class="services">
-    <div class="box">
-      <h2>Patient: Rohan Verma</h2>
-      <p>Age: 29 | Gender: Male<br>
-      Disease: Fever & Cough<br>
-      Appointment Date: 12 Oct 2025</p>
-      <button class="btn">Cancel Appointment</button>
+  <!-- Dashboard -->
+  <div class="dashboard-container">
+    <div class="welcome">
+      <h2>Welcome, Doctor 👨‍⚕️</h2>
+      <p>Manage your appointments, update your availability, and keep your profile up to date.</p>
     </div>
 
-    <div class="box">
-      <h2>Patient: Sneha Patil</h2>
-      <p>Age: 35 | Gender: Female<br>
-      Disease: Skin Allergy<br>
-      Appointment Date: 13 Oct 2025</p>
-      <button class="btn">Cancel Appointment</button>
+    <div class="row g-4">
+      <!-- View Appointments -->
+      <div class="col-md-4">
+        <div class="card p-4 text-center">
+          <h5 class="card-title">View Appointments</h5>
+          <p>Check all upcoming and past appointments.</p>
+          <button class="btn btn-primary" onclick="location.href='/site/DOCTOR/appointment-report.html'">View</button>
+        </div>
+      </div>
+
+      <!-- Manage Slots -->
+      <div class="col-md-4">
+        <div class="card p-4 text-center">
+          <h5 class="card-title">Manage Slots</h5>
+          <p>Set available time slots for patients to book.</p>
+          <button class="btn btn-primary" onclick="location.href='/site/DOCTOR/manage-slots.html'">Add / Edit Slots</button>
+        </div>
+      </div>
+
+      <!-- Profile Settings -->
+      <div class="col-md-4">
+        <div class="card p-4 text-center">
+          <h5 class="card-title">Profile Settings</h5>
+          <p>Update your profile details, speciality, and fees.</p>
+          <button class="btn btn-primary" onclick="location.href='/site/DOCTOR/edit-profile.html'">Edit Profile</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional Reports Section -->
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <div class="card p-4 text-center">
+          <h5 class="card-title">Appointment Summary</h5>
+          <p>See quick insights into your appointments this month.</p>
+          <button class="btn btn-primary" onclick="location.href='/site/DOCTOR/appointment-report.html'">View Report</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 HealthEase | All Rights Reserved</p>
+    &copy; 2025 HealthEase | All Rights Reserved
   </footer>
+
 </body>
 </html>
