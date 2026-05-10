@@ -112,20 +112,6 @@ SQLite database for storing:
 
 ---
 
-# 📷 Project Screenshots
-
-Add screenshots of your project interface here.
-
-## Example:
-
-- Login Page
-- Patient Dashboard
-- Doctor Dashboard
-- Appointment Booking Page
-- Admin Panel
-
----
-
 # ⚙️ Installation & Setup
 
 ## Step 1: Clone Repository
